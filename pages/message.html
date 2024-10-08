@@ -43,11 +43,14 @@
         const yesBtn = document.querySelector("#yes");
         const noBtn = document.querySelector("#no");
 
-        yesBtn.onclick = () => message();
-        noBtn.onclick = () => message();
-
-        yesBtn.onclick = () => sendMail("Good");
-        noBtn.onclick = () => sendMail("Bad");
+        yesBtn.onclick = () => {
+            message();
+            sendMail("Good");
+        };
+        noBtn.onclick = () => {
+            message();
+            sendMail("bad");
+        };
 
         function message() {
             memeImg.src = "https://media.tenor.com/B80MQLJXvpsAAAAM/gavin-meme.gif";
