@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">Message!</div>
+            <div class="meme-img">
+                <img src="https://i.pinimg.com/originals/dd/1d/18/dd1d1885d0384247a24c01a601871074.gif" alt="meme">
+            </div>
+            <div class="small-text">
+                This website is for fun. i know its kinda basic but i hope it was fun and you enjoy it<br><br>Can you
+                please
+                rate it ?
+            </div>
+            <div class="buttons">
+                <div class="button" id="yes">Good</div>
+                <div class="button" id="no">Bad</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const memeImg = document.querySelector('.meme-img img');
+
+        const yesBtn = document.querySelector("#yes");
+        const noBtn = document.querySelector("#no");
+
+        yesBtn.onclick = () => message();
+        noBtn.onclick = () => message();
+
+        yesBtn.onclick = () => sendMail("Good");
+        noBtn.onclick = () => sendMail("Bad");
+
+        function message() {
+            memeImg.src = "https://media.tenor.com/B80MQLJXvpsAAAAM/gavin-meme.gif";
+            yesBtn.style.display = "none";
+            noBtn.style.display = "none";
+
+            bigText.textContent = "Thank you!";
+            smallText.innerHTML = "Thank you Amiira for your time i hope you enjoy it 😁";
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "How is the website",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+    </script>
+</body>
+
+</html>

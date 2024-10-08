@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">Choose one 😉</div>
+            <div class="small-text">What do you like about me ?</div>
+            <div class="grid">
+                <div class="activity" data-name="personality">
+                    <img src="https://img.freepik.com/free-vector/flat-design-schizophrenia-illustration_23-2149364625.jpg"
+                        alt="personality">
+                    <div class="sub-text">Personality</div>
+                </div>
+                <div class="activity" data-name="smile">
+                    <img src="https://www.mouthhealthy.org/-/media/project/ada-organization/ada/mouthhealthy/images/veneers_1110x700.jpg?rev=4ebea368b0834277a68cda1cd87c834e&w=1306&hash=FD96BB347B878D3D59C29CC055E558C5"
+                        alt="smile">
+                    <div class="sub-text">Smile</div>
+                </div>
+                <div class="activity" data-name="looks">
+                    <img src="https://m.media-amazon.com/images/I/61bEE19T8pL._AC_UF894,1000_QL80_.jpg" alt="Looks">
+                    <div class="sub-text">Looks</div>
+                </div>
+                <div class="activity" data-name="mentality">
+                    <img src="https://st3.depositphotos.com/8230070/16605/v/380/depositphotos_166055670-stock-illustration-business-man-cartoon-character-in.jpg"
+                        alt="mentality">
+                    <div class="sub-text">Mentality</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const activities = document.querySelectorAll('.activity');
+
+        activities.forEach(activity => {
+            activity.onclick = () => {
+                let selectedActivity = activity.dataset.name;
+                sendMail(selectedActivity);
+                checkActivity(selectedActivity);
+            }
+        })
+
+        function checkActivity(activity) {
+            if (activity == "smile") {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = "You are making me smile more 🥲<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "choose.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Thank you!";
+                smallText.innerHTML = `I didn't expect that my ${activity} is that good 🥲.<br>wanna continue ?`;
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "choose.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "Best About me",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+    </script>
+</body>
+
+</html>

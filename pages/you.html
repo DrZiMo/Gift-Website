@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+    <style>
+        img {
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">
+                You will go first 😉
+            </div>
+            <div class="small-text">
+                What is my favourite social media platform ?
+            </div>
+            <div class="grid">
+                <div class="country" data-name="YT" title="Youtube">
+                    <img src="https://yt3.googleusercontent.com/584JjRp5QMuKbyduM_2k5RlXFqHJtQ0qLIPZpwbUjMJmgzZngHcam5JMuZQxyzGMV5ljwJRl0Q=s900-c-k-c0x00ffffff-no-rj"
+                        alt="Youtube">
+                </div>
+                <div class="country" data-name="FB" title="Facebook">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/99/b7/36/99b73694-5dc8-7802-af57-69bea03a40ba/Icon-Production-0-0-1x_U007emarketing-0-8-0-85-220.png/1200x630wa.png"
+                        alt="Facebook">
+                </div>
+                <div class="country" data-name="WA" title="Whatsapp">
+                    <img src="https://catskidschaos.com/wp-content/uploads/2019/09/WhatsApp.png" alt="Whatsapp">
+                </div>
+                <div class="country" data-name="TT" title="TikTok">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b3/fc/a1/b3fca1f6-5768-abdb-276c-19b44af58f82/AppIcon_TikTok-0-0-1x_U007epad-0-0-0-85-220.png/1200x600wa.png"
+                        alt="TikTok">
+                </div>
+                <div class="country" data-name="IG" title="Instagram">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6IB5qpWdVHsMpYNy2w_LywTl6mwn6qr39qQ&s"
+                        alt="Instagram">
+                </div>
+                <div class="country" data-name="X" title="X">
+                    <img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2023/07/X-app-920x483.png"
+                        alt="X">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const countries = document.querySelectorAll('.country');
+
+        countries.forEach(country => {
+            country.onclick = () => {
+                let selectedCountry = country.dataset.name;
+
+                checkCountry(selectedCountry);
+            }
+        })
+
+        function checkCountry(country) {
+            if (country == "YT") {
+                grid.style.display = "none";
+                bigText.textContent = "Yeah it is! 😂";
+                smallText.innerHTML = "I use Youtube a lot and also i like tiktok<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (country == "TT") {
+                grid.style.display = "none";
+                bigText.textContent = "Yeah it is! 😂";
+                smallText.innerHTML = "I use TikTok a lot and also i like Youtube<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (country == "FB") {
+                grid.style.display = "none";
+                bigText.textContent = "Nope! 😂";
+                smallText.innerHTML = "I didn't use that for decades<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (country == "WA") {
+                grid.style.display = "none";
+                bigText.textContent = "Nope! 😂";
+                smallText.innerHTML = "I use it alot but i don't like it<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (country == "IG") {
+                grid.style.display = "none";
+                bigText.textContent = "Nope! 😂";
+                smallText.innerHTML = "I don't use it alot and you know that<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Nope! 😂";
+                smallText.innerHTML = "I use it some times but i don't like it<br>wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "sport.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+    </script>
+</body>
+
+</html>

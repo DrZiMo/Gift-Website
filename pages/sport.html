@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">
+                Choose one 😉
+            </div>
+            <div class="small-text">
+                What is my favourite sport ?
+            </div>
+            <div class="grid">
+                <div class="activity" data-name="mma">
+                    <img src="https://evolve-mma.com/wp-content/uploads/2022/08/what-is-mixed-martial-arts.jpeg"
+                        alt="MMA">
+                    <div class="sub-text">MMA</div>
+                </div>
+                <div class="activity" data-name="fb">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Football_in_Bloomington%2C_Indiana%2C_1995.jpg"
+                        alt="Football">
+                    <div class="sub-text">Football</div>
+                </div>
+                <div class="activity" data-name="bb">
+                    <img src="https://cdn.nba.com/manage/2024/08/lebron-guarding-curry.jpg" alt="Basktetball">
+                    <div class="sub-text">Basktetball</div>
+                </div>
+                <div class="activity" data-name="ts">
+                    <img src="https://tennis-hack.com/wp-content/uploads/mejores-zapatillas-tenis.jpg" alt="Tenis">
+                    <div class="sub-text">Tenis</div>
+                </div>
+                <div class="activity" data-name="f1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/FIA_F1_Austria_2022_Nr._16_Leclerc.jpg"
+                        alt="Formula 1">
+                    <div class="sub-text">Formula 1</div>
+                </div>
+                <div class="activity" data-name="e">
+                    <img src="https://media.licdn.com/dms/image/D4E12AQE-VOpte_tWsQ/article-cover_image-shrink_720_1280/0/1694769639667?e=2147483647&v=beta&t=9WWXbqKUwHBgGKZYlCYgaWdONgU4NeBQ2FDwiPm133E"
+                        alt="Esports">
+                    <div class="sub-text">E-Sports</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const activities = document.querySelectorAll('.activity');
+
+        activities.forEach(activity => {
+            activity.onclick = () => {
+                let selectedActivity = activity.dataset.name;
+                sendMail(selectedActivity);
+                checkActivity(selectedActivity);
+            }
+        })
+
+        function checkActivity(activity) {
+            if (activity == "mma") {
+                grid.style.display = "none";
+                bigText.textContent = "Yep! 🔥";
+                smallText.innerHTML = "Tbh i don't watch sports incomon mostly but i like watching MMA matches<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "colorYou.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (activity == "fb" || activity == "f1" || activity == "e") {
+                grid.style.display = "none";
+                bigText.textContent = "Nope!";
+                smallText.innerHTML = `But i watch it some times 🥲.<br>wanna continue ?`;
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "colorYou.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No";
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Nope!";
+                smallText.innerHTML = `I don't like it 😂.<br>never mind, wanna continue ?`;
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "colorYou.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "My fav sport",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+    </script>
+</body>
+
+</html>

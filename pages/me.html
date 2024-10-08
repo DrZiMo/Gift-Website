@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">
+                I will go first 😉
+            </div>
+            <div class="small-text">
+                What is your favourite country ?
+            </div>
+            <div class="grid">
+                <div class="country" data-name="UK" title="United Kingdom">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/2560px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
+                        alt="United Kindom Flag">
+                </div>
+                <div class="country" data-name="Spain" title="spain">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1200px-Bandera_de_Espa%C3%B1a.svg.png"
+                        alt="Spain Flag">
+                </div>
+                <div class="country" data-name="Korea" title="Korea">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/800px-Flag_of_South_Korea.svg.png"
+                        alt="South Korea Flag">
+                </div>
+                <div class="country" data-name="Somaliland" title="Somaliland">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkN6EzHoB4d28KPGxk_I8Erz30VCVWu3pGFw&s"
+                        alt="Somaliland Flag">
+                </div>
+                <div class="country" data-name="Japan" title="Japan">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"
+                        alt="Japan Flag">
+                </div>
+                <div class="country" data-name="Thailand" title="Thailand">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0EPWB0Qhgd_M6-XM9xVmcOFyvx5P6UdHSZg&s"
+                        alt="Thailand Flag">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const countries = document.querySelectorAll('.country');
+
+        countries.forEach(country => {
+            country.onclick = () => {
+                let selectedCountry = country.dataset.name;
+
+                checkCountry(selectedCountry);
+            }
+        })
+
+        function checkCountry(country) {
+            if (country == "UK") {
+                grid.style.display = "none";
+                bigText.textContent = "I know it! 😂";
+                smallText.innerHTML = "This one was easy.<br>becouse of bellingham 😂<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "color.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Really ?";
+                smallText.innerHTML = "I thoung it was UK.<br>never mind, wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "color.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Of course";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No sorry!"
+                link2.appendChild(noBtn);
+            }
+        }
+    </script>
+</body>
+
+</html>

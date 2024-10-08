@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">
+                Choose one 😉
+            </div>
+            <div class="small-text">
+                What is my favourite color ?
+            </div>
+            <div class="color-grid">
+                <div class="color" data-color="red">
+                    <div class="red"></div>
+                </div>
+                <div class="color" data-color="white">
+                    <div class="white"></div>
+                </div>
+                <div class="color" data-color="black">
+                    <div class="black"></div>
+                </div>
+                <div class="color" data-color="pink">
+                    <div class="pink"></div>
+                </div>
+                <div class="color" data-color="blue">
+                    <div class="blue"></div>
+                </div>
+                <div class="color" data-color="voilet">
+                    <div class="voilet"></div>
+                </div>
+                <div class="color" data-color="orange">
+                    <div class="orange"></div>
+                </div>
+                <div class="color" data-color="green">
+                    <div class="green"></div>
+                </div>
+                <div class="color" data-color="yellow">
+                    <div class="yellow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".color-grid");
+        const colors = document.querySelectorAll('.color');
+
+
+        colors.forEach(color => {
+            color.onclick = () => {
+                let selectedColor = color.dataset.color;
+                console.log(selectedColor);
+
+                checkColor(selectedColor);
+            }
+        })
+
+        function checkColor(color) {
+            if (color == "black" || color == "white") {
+                grid.style.display = "none";
+                bigText.textContent = "Yep! 😂";
+                smallText.innerHTML = "you are right, i like black and white.<br>wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "anime.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Nope!";
+                smallText.innerHTML = "I thoung this one wil be easy 😂.<br>never mind, wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "anime.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+    </script>
+</body>
+
+</html>

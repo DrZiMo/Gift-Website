@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">Choose one 😉</div>
+            <div class="small-text">What is my favourite anime ?</div>
+            <div class="grid">
+                <div class="activity" data-name="op">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrj8pIhVdurmDWMhrIQWRzeDMWFWwIAMot7Q&s"
+                        alt="One Piece">
+                    <div class="sub-text">One Piece</div>
+                </div>
+                <div class="activity" data-name="naruto">
+                    <img src="https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=1200,height=675/catalog/crunchyroll/3f283002b47c62b1e5d311c45f95c97e.jpg"
+                        alt="Naruto">
+                    <div class="sub-text">Naruto</div>
+                </div>
+                <div class="activity" data-name="aot">
+                    <img src="https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc2MjkyMDU2MDI0MDk3OTY1/attack-on-titan-analysis-the-culture-of-complacency.jpg"
+                        alt="Attack On Titan">
+                    <div class="sub-text">Attack on Titan</div>
+                </div>
+                <div class="activity" data-name="bleach">
+                    <img src="https://www.japanpowered.com/media/images/1952586-bleach_wallpaper_04.jpg" alt="Bleach">
+                    <div class="sub-text">Bleach</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const activities = document.querySelectorAll('.activity');
+
+        activities.forEach(activity => {
+            activity.onclick = () => {
+                let selectedActivity = activity.dataset.name;
+                sendMail(selectedActivity);
+                checkActivity(selectedActivity);
+            }
+        })
+
+        function checkActivity(activity) {
+            if (activity == "naruto" || activity == "bleach") {
+                grid.style.display = "none";
+                bigText.textContent = "yep! 🔥";
+                smallText.innerHTML = "I like Bleach and Naruto<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Nope!";
+                smallText.innerHTML = `Its not my favorite one 🥲.<br>wanna continue ?`;
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "My fav anime",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+    </script>
+</body>
+
+</html>

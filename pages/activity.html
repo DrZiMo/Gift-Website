@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">
+                Choose one 😉
+            </div>
+            <div class="small-text">
+                What is your favourite one ?
+            </div>
+            <div class="grid">
+                <div class="activity" data-name="kdrama">
+                    <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/3/2023/09/22205504/high-school-kdrama-romantic-1-1600x900.jpeg"
+                        alt="kdrama">
+                    <div class="sub-text">Kdrama</div>
+                </div>
+                <div class="activity" data-name="sleeping">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6Ehr3KZDHW9NqMCOrZjAy5_a4ZrWx1iamQ&s"
+                        alt="sleeping">
+                    <div class="sub-text">Sleeping</div>
+                </div>
+                <div class="activity" data-name="zuhayb">
+                    <img src="https://www.wikihow.com/images/thumb/a/a0/Greet-a-Girl-Step-10-Version-2.jpg/v4-460px-Greet-a-Girl-Step-10-Version-2.jpg"
+                        alt="zuhayb">
+                    <div class="sub-text">Meeting zuhayb</div>
+                </div>
+                <div class="activity" data-name="working">
+                    <img src="https://cdn.prod.website-files.com/640051ce8a159067e1042e74/65d5b19950d874f282b5c35f_woman-with-gloves-cleaning-floor_23-2148520978.jpg"
+                        alt="working">
+                    <div class="sub-text">Working</div>
+                </div>
+                <div class="activity" data-name="anime">
+                    <img src="https://static.printler.com/cache/9/b/3/a/1/c/9b3a1c99145ffb54b29cf2cd9ff649915c856b92.jpg"
+                        alt="anime">
+                    <div class="sub-text">Anime</div>
+                </div>
+                <div class="activity" data-name="friend">
+                    <img src="https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/field_blog_entry_teaser_image/2022-02/your_guide_to_being_a_good_friend.jpg?itok=G-1N4h5O"
+                        alt="friend">
+                    <div class="sub-text">Friend</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const activities = document.querySelectorAll('.activity');
+
+        activities.forEach(activity => {
+            activity.onclick = () => {
+                let selectedActivity = activity.dataset.name;
+                sendMail(selectedActivity);
+                checkActivity(selectedActivity);
+            }
+        })
+
+        function checkActivity(activity) {
+            if (activity == "zuhayb") {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = "Thank you, i also like to meet you 🥲<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "about me.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (activity == "kdrama" || activity == "sleeping" || activity == "anime") {
+                grid.style.display = "none";
+                bigText.textContent = "Nice!";
+                smallText.innerHTML = "But i thought you gonna choose me 🥲.<br>never mind, wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "about me.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No";
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Really ?!";
+                smallText.innerHTML = "I didn't expect that 😂.<br>never mind, wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "about me.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "Best Activity",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+
+    </script>
+</body>
+
+</html>

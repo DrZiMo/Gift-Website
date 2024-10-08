@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Gift for you 🎉</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="big-text">Choose one 😉</div>
+            <div class="small-text">What do you like most ?</div>
+            <div class="grid">
+                <div class="activity" data-name="flower">
+                    <img src="https://media.istockphoto.com/id/1067612022/photo/man-giving-a-woman-rose.jpg?s=612x612&w=0&k=20&c=QIwiBe0Rboy9hz-1w020frh-bOiS6qV7t07ZWr-Z9is="
+                        alt="flower">
+                    <div class="sub-text">Flower</div>
+                </div>
+                <div class="activity" data-name="hands">
+                    <img src="https://www.moneyandmentalhealth.org/wp-content/uploads/2019/07/people-holding-hands-scaled.jpg"
+                        alt="hands">
+                    <div class="sub-text">Holding hands</div>
+                </div>
+                <div class="activity" data-name="hug">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBfiA__g6pWsi_mDW22_bQsoh556wscAnXVw&s"
+                        alt="hug">
+                    <div class="sub-text">Hug</div>
+                </div>
+                <div class="activity" data-name="mentality">
+                    <img src="https://i.pinimg.com/736x/5a/b0/04/5ab004ab4996bdd2e618d79f10f610f7.jpg" alt="mentality">
+                    <div class="sub-text">Dinner together</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "usoydEwUq-jBIxhZ4",
+            });
+        })();
+    </script>
+    <script>
+        const container = document.querySelector(".container");
+        const bigText = document.querySelector(".big-text");
+        const smallText = document.querySelector(".small-text");
+        const grid = document.querySelector(".grid");
+        const activities = document.querySelectorAll('.activity');
+
+        activities.forEach(activity => {
+            activity.onclick = () => {
+                let selectedActivity = activity.dataset.name;
+                sendMail(selectedActivity);
+                checkActivity(selectedActivity);
+            }
+        })
+
+        function checkActivity(activity) {
+            if (activity == "flower") {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = "Am gonna try to buy you flower 🥲<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (activity == "hands") {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = "I will hold your hand 🥲<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else if (activity == "hug") {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = "Lets Hug 😫🫂<br> wanna continue ?";
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+            else {
+                grid.style.display = "none";
+                bigText.textContent = "Ohhhh! 💕";
+                smallText.innerHTML = `One day inshallah we gonna go dinner together 🥲.<br>wanna continue ?`;
+
+                const btns = document.createElement("div");
+                btns.className = "buttons";
+                container.appendChild(btns);
+
+                const link1 = document.createElement("a");
+                link1.href = "message.html";
+                btns.appendChild(link1);
+
+                const link2 = document.createElement("a");
+                link2.href = "sorry.html";
+                btns.appendChild(link2);
+
+                const yesBtn = document.createElement("div");
+                yesBtn.className = "button";
+                yesBtn.textContent = "Yes";
+                link1.appendChild(yesBtn);
+
+                const noBtn = document.createElement("div");
+                noBtn.className = "button";
+                noBtn.textContent = "No"
+                link2.appendChild(noBtn);
+            }
+        }
+
+        function sendMail(activity) {
+            var params = {
+                from_name: "Amiira",
+                to_name: "zuhayb",
+                q_name: "What she like most",
+                message: activity
+            }
+
+            emailjs.send("service_efzes2y", "template_vjjhlm2", params);
+        }
+    </script>
+</body>
+
+</html>
